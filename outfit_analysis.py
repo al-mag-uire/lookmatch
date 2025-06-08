@@ -1,16 +1,15 @@
 import os
 import openai
 import base64
-from dotenv import load_dotenv
 from pathlib import Path
 import sys
+import streamlit as st
 
 # Load API keys from .env
-load_dotenv()
-client = openai.OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+client = openai.OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
-if not os.getenv("OPENAI_API_KEY"):
-    raise ValueError("Missing required OpenAI API key. Please check your .env file.")
+if "OPENAI_API_KEY" not in st.secrets:
+    raise ValueError("Missing required OpenAI API key. Please check your .streamlit/secrets.toml file.")
 
 # Configuration
 ALLOWED_IMAGE_EXTENSIONS = {'.jpg', '.jpeg', '.png'}
