@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+env/
+
+# Environment variables
+.env
+
+# Streamlit cache
+.streamlit/
+
+# Images (test data)
+images/*
+!images/.gitkeep
+secrets.toml
